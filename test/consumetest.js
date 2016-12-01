@@ -19,7 +19,23 @@ rl.question('username: ', (answer) => {
    if(error) {
        console.log(error);
    } else {
-       console.log(response.statusCode, body);
+    
+      var myResponse = JSON.parse(body);
+        console.log(myResponse['geonames']);
+
+
+      myResponse['geonames'].forEach(function(element) {
+          console.log(element.title);
+          console.log(element.summary);
+          console.log(element.feature);
+          console.log(element.countryCode);
+          console.log('\n');
+
+      });
+      // My username is meddy
+
+     // console.log(response.statusCode, body.geonames);
+       //console.log(response.statusCode, body);
    }
 });
 
